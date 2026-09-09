@@ -1,0 +1,10 @@
+{
+  "name":"Mis Beneficios",
+  "short_name":"Beneficios",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f4f5f7",
+  "theme_color":"#111827",
+  "lang":"es",
+  "icons":[]
+}

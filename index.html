@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+<title>Mis Beneficios</title>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div><div class="eyebrow">CONTROL FINANCIERO</div><h1>Mis Beneficios</h1></div>
+  <button id="addBtn" class="primary round">＋</button>
+</header>
+
+<main>
+<section class="hero">
+  <span>Resultado neto</span>
+  <strong id="netTotal">0,00 €</strong>
+  <small>Ingresos − gastos + beneficios manuales</small>
+</section>
+
+<section class="metrics">
+  <div class="metric red"><span>Ingresos</span><b id="incomeTotal">0,00 €</b></div>
+  <div class="metric expense"><span>Gastos</span><b id="expenseTotal">0,00 €</b></div>
+  <div class="metric green"><span>Beneficios</span><b id="profitTotal">0,00 €</b></div>
+</section>
+
+<section class="periods">
+  <article><div><span>Esta semana</span><b id="weekResult">0,00 €</b></div><div class="bar"><i id="weekBar"></i></div></article>
+  <article><div><span>Este mes</span><b id="monthResult">0,00 €</b></div><div class="bar"><i id="monthBar"></i></div></article>
+</section>
+
+<section class="panel">
+  <div class="panelHead"><h2>Movimientos</h2><div><button id="exportBtn" class="ghost">Excel</button><button id="clearBtn" class="ghost danger">Borrar</button></div></div>
+  <div id="movements"></div>
+</section>
+</main>
+
+<nav class="bottom"><button class="active">Resumen</button><button id="newBottom">＋ Añadir</button><button id="statsBtn">Estadísticas</button></nav>
+</div>
+
+<div id="modal" class="modal hidden">
+ <div class="sheet">
+  <div class="sheetHead"><h2>Nuevo movimiento</h2><button id="closeModal">×</button></div>
+  <form id="movementForm">
+   <label>Concepto<input id="concept" required placeholder="Ej. Venta producto A"></label>
+   <label>Importe (€)<input id="amount" required inputmode="decimal" placeholder="0,00"></label>
+   <label>Tipo<select id="type"><option value="expense">Gasto</option><option value="income">Ingreso</option><option value="profit">Beneficio</option></select></label>
+   <div class="switches"><button type="button" data-type="expense">🔴 Gasto</button><button type="button" data-type="income">🔴 Ingreso</button><button type="button" data-type="profit">🟢 Beneficio</button></div>
+   <label>Categoría<select id="category"><option>General</option><option>Ventas</option><option>Transporte</option><option>Comida</option><option>Vivienda</option><option>Trabajo</option><option>Ocio</option><option>Otros</option></select></label>
+   <label>Icono</label><div class="icons" id="icons"></div>
+   <label>Imagen<input id="image" type="file" accept="image/*" capture="environment"></label>
+   <img id="preview" class="preview hidden">
+   <label>Fecha<input id="date" type="date"></label>
+   <label>Notas<textarea id="notes" rows="3" placeholder="Opcional"></textarea></label>
+   <button class="primary save" type="submit">Guardar movimiento</button>
+  </form>
+ </div>
+</div>
+
+<div id="statsModal" class="modal hidden">
+ <div class="sheet">
+  <div class="sheetHead"><h2>Estadísticas</h2><button id="closeStats">×</button></div>
+  <div id="statsContent"></div>
+ </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
